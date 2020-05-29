@@ -2,6 +2,8 @@ import express,{Application} from "express";
 
 import {CategoryController} from "./controllers/category.controller";
 import {ProductController} from "./controllers/product.controller";
+import {UserController} from "./controllers/user.controller";
+import {CartController} from "./controllers/cart.controller";
 
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -17,6 +19,8 @@ class App{
 
     public category_controller: CategoryController;
     public product_controller: ProductController;
+    public user_controller: UserController;
+    public cart_controller: CartController;
 
     constructor(){        
         this.app = express();
@@ -26,6 +30,8 @@ class App{
 
         this.category_controller = new CategoryController(this.app);
         this.product_controller = new ProductController(this.app);
+        this.user_controller = new UserController(this.app);
+        this.cart_controller = new CartController(this.app);
         
     }
     private setConfig(){
