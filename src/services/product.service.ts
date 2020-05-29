@@ -50,7 +50,7 @@ export class ProductService extends ProductHelpers{
         console.log(p);
         console.log(req.body);
 
-        if( old_prod.length === 0 ){
+        if( old_prod != p ){
             await p.save((err:Error, Product: IProducts)=>{
                 if(err){
                     res.status(401).send(err);
