@@ -43,6 +43,7 @@ export class ProductService extends ProductHelpers{
           })
     }
 
+    
     public async NewOne(req: Request, res: Response){        
         const p = new Product(req.body);
         const old_prod:any = await super.GetProduct({name:p.name});
@@ -62,6 +63,19 @@ export class ProductService extends ProductHelpers{
             res.status(200).json({successed:false});
         } 
     }
+    /*
+    public async NewOne(req: Request, res: Response){
+        const prod = new Product(req.body);
+
+        await prod.save((err:Error, Cart:IProducts)=>{
+            if(err){
+                res.status(401).send(err);
+            }else{
+                res.status(200).json( Cart? {successed:true, Cart: Cart } : {successed:false} );          
+            }
+        });
+    }*/
+
 
     public async deleteOne(req:Request, res:Response){
         Product.findByIdAndDelete(req.params.id,(err:Error)=>{
