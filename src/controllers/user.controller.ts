@@ -15,7 +15,7 @@ export class UserController{
 
         this.app.route("/user/:id")
         .delete(this.User_service.deleteOne)
-        .get(this.User_service.getOne)
+        .get(this.User_service.getOneUser)
         
     }
 }

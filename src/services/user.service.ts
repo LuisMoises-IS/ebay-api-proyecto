@@ -65,7 +65,7 @@ export class UserService extends UserHelpers{
         });
     }
 
-    public async getOne(req:Request, res:Response){
+    public async getOneUser(req:Request, res:Response){
         const user:any = await super.GetUser({_id:req.params.id});
         res.status(200).json(user[0]);
     }
